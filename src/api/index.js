@@ -1,15 +1,15 @@
-import { Router } from 'express'
-import product from './product'
-import price from './price'
-import dimension from './dimension'
-import weight from './weight'
+import { Router } from 'express';
+import product from './product';
+import price from './price';
+import dimension from './dimension';
+import weight from './weight';
 
-const router = new Router()
+const router = new Router();
 
-router.use('/products', product)
-router.use('/prices', price)
-router.use('/dimensions', dimension)
-router.use('/weights', weight)
+router.use('/products', product);
+router.use('/prices', price);
+router.use('/dimensions', dimension);
+router.use('/weights', weight);
 
 /**
  * @apiDefine master Master access only
@@ -35,4 +35,4 @@ router.use('/weights', weight)
  * @apiParam {String[]} [fields] Fields to be returned.
  */
 
-export default router
+export default router;
