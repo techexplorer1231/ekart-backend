@@ -1,12 +1,13 @@
-import { Router } from 'express'
-import { middleware as query } from 'querymen'
-import { middleware as body } from 'bodymen'
-import { create, index, show, update, destroy } from './controller'
-import { schema } from './model'
-export Product, { schema } from './model'
+import { Router } from 'express';
+import { middleware as query } from 'querymen';
+import { middleware as body } from 'bodymen';
+import { create, index, show, update, destroy } from './controller';
+import { schema } from './model';
 
-const router = new Router()
-const { name, description } = schema.tree
+export Product, { schema } from './model';
+
+const router = new Router();
+const { name, description } = schema.tree;
 
 /**
  * @api {post} /products Create product
@@ -18,9 +19,7 @@ const { name, description } = schema.tree
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Product not found.
  */
-router.post('/',
-  body({ name, description }),
-  create)
+router.post('/', body({ name, description }), create);
 
 /**
  * @api {get} /products Retrieve products
@@ -30,9 +29,7 @@ router.post('/',
  * @apiSuccess {Object[]} products List of products.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
-router.get('/',
-  query(),
-  index)
+router.get('/', query(), index);
 
 /**
  * @api {get} /products/:id Retrieve product
@@ -42,8 +39,7 @@ router.get('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Product not found.
  */
-router.get('/:id',
-  show)
+router.get('/:id', show);
 
 /**
  * @api {put} /products/:id Update product
@@ -55,9 +51,7 @@ router.get('/:id',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Product not found.
  */
-router.put('/:id',
-  body({ name, description }),
-  update)
+router.put('/:id', body({ name, description }), update);
 
 /**
  * @api {delete} /products/:id Delete product
@@ -66,7 +60,6 @@ router.put('/:id',
  * @apiSuccess (Success 204) 204 No Content.
  * @apiError 404 Product not found.
  */
-router.delete('/:id',
-  destroy)
+router.delete('/:id', destroy);
 
-export default router
+export default router;

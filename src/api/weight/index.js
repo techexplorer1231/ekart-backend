@@ -1,12 +1,13 @@
-import { Router } from 'express'
-import { middleware as query } from 'querymen'
-import { middleware as body } from 'bodymen'
-import { create, index, show, update, destroy } from './controller'
-import { schema } from './model'
-export Weight, { schema } from './model'
+import { Router } from 'express';
+import { middleware as query } from 'querymen';
+import { middleware as body } from 'bodymen';
+import { create, index, show, update, destroy } from './controller';
+import { schema } from './model';
 
-const router = new Router()
-const { unit } = schema.tree
+export Weight, { schema } from './model';
+
+const router = new Router();
+const { unit } = schema.tree;
 
 /**
  * @api {post} /weights Create weight
@@ -17,9 +18,7 @@ const { unit } = schema.tree
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Weight not found.
  */
-router.post('/',
-  body({ unit }),
-  create)
+router.post('/', body({ unit }), create);
 
 /**
  * @api {get} /weights Retrieve weights
@@ -29,9 +28,7 @@ router.post('/',
  * @apiSuccess {Object[]} weights List of weights.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
-router.get('/',
-  query(),
-  index)
+router.get('/', query(), index);
 
 /**
  * @api {get} /weights/:id Retrieve weight
@@ -41,8 +38,7 @@ router.get('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Weight not found.
  */
-router.get('/:id',
-  show)
+router.get('/:id', show);
 
 /**
  * @api {put} /weights/:id Update weight
@@ -53,9 +49,7 @@ router.get('/:id',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Weight not found.
  */
-router.put('/:id',
-  body({ unit }),
-  update)
+router.put('/:id', body({ unit }), update);
 
 /**
  * @api {delete} /weights/:id Delete weight
@@ -64,7 +58,6 @@ router.put('/:id',
  * @apiSuccess (Success 204) 204 No Content.
  * @apiError 404 Weight not found.
  */
-router.delete('/:id',
-  destroy)
+router.delete('/:id', destroy);
 
-export default router
+export default router;

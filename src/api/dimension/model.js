@@ -1,31 +1,36 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose';
 
-const dimensionSchema = new Schema({
-  unit: {
-    type: String
-  }
-}, {
-  timestamps: true
-})
+const dimensionSchema = new Schema(
+  {
+    unit: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
 
 dimensionSchema.methods = {
-  view (full) {
+  view(full) {
     const view = {
       // simple view
       id: this.id,
       unit: this.unit,
       createdAt: this.createdAt,
-      updatedAt: this.updatedAt
-    }
+      updatedAt: this.updatedAt,
+    };
 
-    return full ? {
-      ...view
-      // add properties for a full view
-    } : view
-  }
-}
+    return full
+      ? {
+        ...view,
+          // add properties for a full view
+      }
+      : view;
+  },
+};
 
-const model = mongoose.model('Dimension', dimensionSchema)
+const model = mongoose.model('Dimension', dimensionSchema);
 
-export const schema = model.schema
-export default model
+export const schema = model.schema;
+export default model;

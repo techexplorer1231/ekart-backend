@@ -1,12 +1,13 @@
-import { Router } from 'express'
-import { middleware as query } from 'querymen'
-import { middleware as body } from 'bodymen'
-import { create, index, show, update, destroy } from './controller'
-import { schema } from './model'
-export Price, { schema } from './model'
+import { Router } from 'express';
+import { middleware as query } from 'querymen';
+import { middleware as body } from 'bodymen';
+import { create, index, show, update, destroy } from './controller';
+import { schema } from './model';
 
-const router = new Router()
-const { currency } = schema.tree
+export Price, { schema } from './model';
+
+const router = new Router();
+const { currency } = schema.tree;
 
 /**
  * @api {post} /prices Create price
@@ -17,9 +18,7 @@ const { currency } = schema.tree
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Price not found.
  */
-router.post('/',
-  body({ currency }),
-  create)
+router.post('/', body({ currency }), create);
 
 /**
  * @api {get} /prices Retrieve prices
@@ -29,9 +28,7 @@ router.post('/',
  * @apiSuccess {Object[]} prices List of prices.
  * @apiError {Object} 400 Some parameters may contain invalid values.
  */
-router.get('/',
-  query(),
-  index)
+router.get('/', query(), index);
 
 /**
  * @api {get} /prices/:id Retrieve price
@@ -41,8 +38,7 @@ router.get('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Price not found.
  */
-router.get('/:id',
-  show)
+router.get('/:id', show);
 
 /**
  * @api {put} /prices/:id Update price
@@ -53,9 +49,7 @@ router.get('/:id',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Price not found.
  */
-router.put('/:id',
-  body({ currency }),
-  update)
+router.put('/:id', body({ currency }), update);
 
 /**
  * @api {delete} /prices/:id Delete price
@@ -64,7 +58,6 @@ router.put('/:id',
  * @apiSuccess (Success 204) 204 No Content.
  * @apiError 404 Price not found.
  */
-router.delete('/:id',
-  destroy)
+router.delete('/:id', destroy);
 
-export default router
+export default router;

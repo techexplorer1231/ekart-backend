@@ -26,7 +26,9 @@ global.parseFloat = parseFloat;
 
 beforeAll(async () => {
   await mockgoose(mongoose);
-  mongoose.connect(mongo.uri);
+  mongoose.connect(mongo.uri, {
+    useMongoClient: true,
+  });
 });
 
 afterAll(() => {

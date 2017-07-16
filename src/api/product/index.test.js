@@ -1,8 +1,6 @@
 import request from 'supertest';
 import express from '../../services/express';
-/* eslint-disable */
 import routes, { Product } from '.';
-/* eslint-enable */
 
 const app = () => express(routes);
 
