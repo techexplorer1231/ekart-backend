@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
+import keywords from 'mongoose-keywords';
 import { schema as PriceSchema } from '../price/model';
 import { schema as DimensionSchema } from '../dimension/model';
 import { schema as WeightSchema } from '../weight/model';
@@ -59,6 +60,7 @@ productSchema.methods = {
   },
 };
 
+productSchema.plugin(keywords, { paths: ['name'] });
 const model = mongoose.model('Product', productSchema);
 
 export const schema = model.schema;
