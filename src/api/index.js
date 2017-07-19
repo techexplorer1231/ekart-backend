@@ -3,6 +3,7 @@ import product from './product';
 import price from './price';
 import dimension from './dimension';
 import weight from './weight';
+import category from './category';
 
 const router = new Router();
 
@@ -10,6 +11,7 @@ router.use('/products', product);
 router.use('/prices', price);
 router.use('/dimensions', dimension);
 router.use('/weights', weight);
+router.use('/categories', category);
 
 /**
  * @apiDefine master Master access only
