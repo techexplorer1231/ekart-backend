@@ -3,7 +3,7 @@ import { Dimension } from '.';
 let dimension;
 
 beforeEach(async () => {
-  dimension = await Dimension.create({ unit: 'test' });
+  dimension = await Dimension.create({ unit: 'cm' });
 });
 
 describe('view', () => {

@@ -11,10 +11,10 @@ beforeEach(async () => {
 });
 
 test('POST /weights 201', async () => {
-  const { status, body } = await request(app()).post('/').send({ unit: 'test' });
+  const { status, body } = await request(app()).post('/').send({ unit: 'g' });
   expect(status).toBe(201);
   expect(typeof body).toEqual('object');
-  expect(body.unit).toEqual('test');
+  expect(body.unit).toEqual('g');
 });
 
 test('GET /weights 200', async () => {
@@ -36,15 +36,15 @@ test('GET /weights/:id 404', async () => {
 });
 
 test('PUT /weights/:id 200', async () => {
-  const { status, body } = await request(app()).put(`/${weight.id}`).send({ unit: 'test' });
+  const { status, body } = await request(app()).put(`/${weight.id}`).send({ unit: 'g' });
   expect(status).toBe(200);
   expect(typeof body).toEqual('object');
   expect(body.id).toEqual(weight.id);
-  expect(body.unit).toEqual('test');
+  expect(body.unit).toEqual('g');
 });
 
 test('PUT /weights/:id 404', async () => {
-  const { status } = await request(app()).put('/123456789098765432123456').send({ unit: 'test' });
+  const { status } = await request(app()).put('/123456789098765432123456').send({ unit: 'g' });
   expect(status).toBe(404);
 });
 

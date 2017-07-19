@@ -3,7 +3,7 @@ import { Weight } from '.';
 let weight;
 
 beforeEach(async () => {
-  weight = await Weight.create({ unit: 'test' });
+  weight = await Weight.create({ unit: 'g' });
 });
 
 describe('view', () => {

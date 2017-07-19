@@ -5,6 +5,12 @@ const priceSchema = new Schema(
     currency: {
       type: String,
     },
+    amount: {
+      type: Number,
+    },
+    includes_tax: {
+      type: Boolean,
+    },
   },
   {
     timestamps: true,

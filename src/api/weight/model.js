@@ -4,6 +4,11 @@ const weightSchema = new Schema(
   {
     unit: {
       type: String,
+      default: 'g',
+      enum: ['g', 'kg', 'lb', 'oz'],
+    },
+    value: {
+      type: String,
     },
   },
   {

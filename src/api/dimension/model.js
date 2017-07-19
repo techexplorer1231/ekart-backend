@@ -4,6 +4,16 @@ const dimensionSchema = new Schema(
   {
     unit: {
       type: String,
+      default: 'cm',
+      enum: ['cm', 'm', 'ft', 'in', 'yd', 'mi'],
+    },
+    measurement: {
+      type: String,
+      default: 'length',
+      enum: ['length', 'width', 'height'],
+    },
+    value: {
+      type: String,
     },
   },
   {
